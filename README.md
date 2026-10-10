@@ -5,3 +5,5 @@ Answers inbound calls (Vaani), qualifies them against Nikhil's rubric, hands qua
 Start with `docs/automation-brief.md`, then `docs/component-map.md`, `docs/architecture.md`, `docs/assumptions.md`, `docs/setup.md`, `docs/traceability.md`.
 
     npm install && npm test && npm run build
+
+Hosted on Vercel (project `aangan-agent`), source on GitHub (`DeepakJain1511/aangan-agent`). Database: Supabase.
