@@ -12,5 +12,7 @@
 | Nine Checks | n/a | n/a | Omitted by user instruction | Skipped |
 | Components Map (Trigger→Input→Context→Processing→AI→Output) | `component-map.md` | n/a | Written | Done |
 | Idempotency, secrets, auth | architecture | `vaani.ts`, `store.ts`, telegram route | Tests + local 401/duplicate check | Verified |
-| Build and tests pass | setup | n/a | `npm test` 47 pass; `next build` OK | Verified |
+| Build and tests pass | setup | n/a | `npm test` 50 pass; `next build` OK | Verified |
 | Deployment | setup | n/a | Instructions only; not deployed | Needs your accounts |
+| Live end-to-end on Vercel + Supabase + Telegram + HubSpot | setup | `scripts/e2e-live.ts` | Fake Vaani call -> row, Telegram message, HubSpot deal, duplicate ignored; records cleaned up | Verified (simulated call) |
+| Real Vaani call end to end | assumptions 13, 14 | n/a | No inbound number or webhook setting available yet | **Not verified** |

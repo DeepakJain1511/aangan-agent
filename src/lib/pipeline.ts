@@ -67,7 +67,8 @@ export async function processCall(
   const errors: string[] = [];
 
   // Only qualified leads and escalations reach designers; declines stay in the dashboard.
-  if (decision.outcome === "forward" || decision.outcome === "escalate") {
+  // Sample/seed rows are display-only: never message designers or write to the CRM for them.
+  if (!opts.isSample && (decision.outcome === "forward" || decision.outcome === "escalate")) {
     try {
       const prefix = decision.outcome === "escalate" ? "ESCALATION\n" : "";
       const msgId = await sendTelegramLead(prefix + note, input.callId, decision.outcome === "forward");
@@ -79,7 +80,7 @@ export async function processCall(
       errors.push(`telegram: ${(e as Error).message}`);
     }
   }
-  if (decision.outcome === "forward") {
+  if (!opts.isSample && decision.outcome === "forward") {
     try {
       const h = await syncHubspot({ name: facts.callerName, phone: input.phone, note, callId: input.callId });
       patch.hubspot_contact_id = h.contactId;
